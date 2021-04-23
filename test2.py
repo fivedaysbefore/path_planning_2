@@ -7,6 +7,7 @@ import numpy as np
 import math
 from main import dict_net_node_coordinate
 from main import list_net_edges
+
 # 计算两点之间线段的距离
 def __line_magnitude(x1, y1, x2, y2):
     lineMagnitude = math.sqrt(math.pow((x2 - x1), 2) + math.pow((y2 - y1), 2))
