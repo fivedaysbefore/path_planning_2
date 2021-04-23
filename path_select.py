@@ -27,3 +27,4 @@ def all_path_select(all_path, all_cost, dict_crowd_density_now):
             for k in cost:
                 all_cost_now.append(k)
     return all_path_now, all_cost_now
+"""this is for test"""
