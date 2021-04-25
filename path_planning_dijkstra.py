@@ -41,11 +41,8 @@ def dijkstra_path_planning(list_dijk_edges, start_point, end_point):
 
     # print("\n===Dijkstra The planning path :===")
     cost, path = dijkstra(list_dijk_edges, start_point, end_point)
-    # length = len(path) - 1
-    # print('path:', start_point, end='')
-    # for i in range(length):
-    #     print(" -->", path[i+1], end='')
-    # print('\ncost:',cost)
-    # print()
-    # print()
+    if path == []:
+        path.append(start_point)
+
+
     return cost, path

@@ -6,7 +6,7 @@ import numpy
 """此函数用来获得路径规划的启发函数"""
 
 
-def get_hn(point_start, list_end_point, list_disabled_point, dict_net_node_coordinate,
+def get_hn(point_start, list_end_point, list_disabled_point_now, dict_net_node_coordinate,
            list_net_nodes):
     nodes = dict_net_node_coordinate
     point_distance = []
@@ -33,7 +33,7 @@ def get_hn(point_start, list_end_point, list_disabled_point, dict_net_node_coord
     for node in range(1, nodes_num + 1):
         if node == best_end_point:
             hn_1.append(0)
-        elif node in list_disabled_point:
+        elif node in list_disabled_point_now:
             hn_1.append(max_num)
         else:
             length_hn_1 = int(numpy.sqrt((nodes[best_end_point][0] - nodes[node][0]) ** 2 + \
@@ -43,7 +43,7 @@ def get_hn(point_start, list_end_point, list_disabled_point, dict_net_node_coord
     for node in range(1, nodes_num + 1):
         if node == second_end_point:
             hn_2.append(0)
-        elif node in list_disabled_point:
+        elif node in list_disabled_point_now:
             hn_2.append(max_num)
         else:
             length_hn_2 = int(numpy.sqrt((nodes[second_end_point][0] - nodes[node][0]) ** 2 + \

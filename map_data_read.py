@@ -55,4 +55,3 @@ def map_draw(data_path, path_info):
     nx.draw_networkx_labels(net_grid, dict_net_node_coordinate, dict_nodes_labels, 5)
 
     return dict_net_node_coordinate, path_info_data, list_net_edges, list_net_nodes
-    # plt.show()

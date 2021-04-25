@@ -1,6 +1,7 @@
 # five days before
 # 时间 2021/4/1 20:25
 # -*- coding: utf-8 -*-
+import time
 def astar_path_finding(graph, nodes_NUM, start_point, end_point, h):
     # 问题的最终解
     class Stack:
@@ -84,7 +85,6 @@ def astar_path_finding(graph, nodes_NUM, start_point, end_point, h):
         s_path = Stack()  # solution nodes path                     s_path中作为走过路径记录@
         s_parent = Stack()  # solution nodes' parents path          s_parent中作为open表每次pop的记录@
         pq_open.put([_root, 0])  # 将初始结点存入OPEN表中@
-
         while pq_open.is_empty() == False:
             parent_node = pq_open.get()
             # """测试"""
@@ -117,18 +117,24 @@ def astar_path_finding(graph, nodes_NUM, start_point, end_point, h):
         cost = 0
         #print("parents:", parents)
         p = _goal
-
+        time1 = time.time()
         while p != _root:
-            cost += graph.get_edge(p, parents[p])
-            path.append(p);
-            p = parents[p]
+            time2 = time.time()
+            run_time = time2 - time1
+            if run_time > 0.001:
+                cost = -1
+                path = []
+                break
+            else:
+                cost += graph.get_edge(p, parents[p])
+                path.append(p);
+                p = parents[p]
         path.append(start_point)
         list.reverse(path)
         return cost, path
     # place_str = input()
     # places = place_str.split()
     # cost = a_star(graph, h, eval(places[0]), eval(places[1]))
-
     cost, path = a_star(graph, h, start_point, end_point)
     #print('\n===A* algorithm The planning path===')
     return cost, path

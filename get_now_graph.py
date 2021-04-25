@@ -5,7 +5,7 @@ def get_now_graph(list_disabled_point, list_disabled_path,
     nodes_NUM = len(list_net_nodes)- len(list_disabled_point)
     list_net_edges_now = []
     list_net_nodes_now = []
-    dict_net_node_coordinate_now = dict_net_node_coordinate
+    dict_net_node_coordinate_now = dict(dict_net_node_coordinate)
 
     for key in list_disabled_point:
         del dict_net_node_coordinate_now[key]

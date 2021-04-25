@@ -10,9 +10,13 @@ def all_path_select(all_path, all_cost, dict_crowd_density_now):
         now_end = all_path[i][-1]
         if target_end not in dict_crowd_density_now:
             target_crowd_density = 0
-            now_crowd_density = dict_crowd_density_now[now_end]
+            try:
+                now_crowd_density = dict_crowd_density_now[now_end]
+            except KeyError:
+                now_crowd_density = 0
+
             path, cost = path_compare.path_compare(all_path[i], all_cost[i], all_path[i+1], all_cost[i+1],
-                                                   now_crowd_density,target_crowd_density)
+                                                   now_crowd_density, target_crowd_density)
             for j in path:
                 all_path_now.append(j)
             for k in cost:
