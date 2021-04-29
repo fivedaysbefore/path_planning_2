@@ -21,7 +21,7 @@ def path_update(all_path_now,
 
     """path_with_node: [[(2,3),(3,4),(4,5)...],[...],[...]]"""
     for path in all_path_now:
-        print("路径起点：", path[0])
+        #print("路径起点：", path[0])
         path_with_point_temp = []
         if path[0] in list_start_point:
             dict_edge_density[(path[0], path[1])] = dict_edge_density[(0, path[0])]
@@ -30,7 +30,7 @@ def path_update(all_path_now,
             edge = (path[i], path[i + 1])
             path_with_point_temp.append(edge)
         path_with_node.append(path_with_point_temp)
-    print('path_with_node:', path_with_node)
+    #print('path_with_node:', path_with_node)
     for path in path_with_node:
         length_next = length_final
         #length_last = 0

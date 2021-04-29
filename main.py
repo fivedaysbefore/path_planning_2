@@ -104,7 +104,7 @@ while fire_time < 50:
         dict_crowd_density_now = get_density.now_crowd_density(list_end_point_used, list_crowd_density)
         #print('出口人数：', dict_crowd_density_now)
         all_path_now, all_cost_now = path_select.all_path_select(all_path, all_cost, dict_crowd_density_now)
-        print('all_path_now:',all_path_now)
+        # print('all_path_now:',all_path_now)
         for path in all_path_now:
             draw_path.draw_path_now(path, dict_net_node_coordinate)
     else:
