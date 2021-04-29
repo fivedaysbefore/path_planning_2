@@ -34,4 +34,5 @@ def init_graph(nodes_NUM, path_info_data,list_net_edges_now):
                 list_dijk_edges.append((int(path_info_data[j][1]),
                                int(path_info_data[j][0]),
                                int(path_info_data[j][2])))
+    #print('list_dijk_edges:',list_dijk_edges)
     return graph, list_dijk_edges

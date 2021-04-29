@@ -26,7 +26,7 @@ def path_compare(path_1,cost_1,path_2,cost_2,now_crowd_density,target_crowd_dens
         print('path:', path_i[0], end='')
         for i in range(length):
             print(" -->", path_i[i+1], end='')
-        # print('\npath:',path_i)
+        #print('\npath:',path_i)
         print('\ncost:', cost[j])
         print('time:', int(cost[j]/1.7))
     return path, cost

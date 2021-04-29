@@ -17,5 +17,5 @@ def draw_path_now(path, dict_net_node_coordinate):
     net_grid.add_nodes_from(path)
     net_grid.add_edges_from(list_edges)
     nx.draw_networkx_nodes(net_grid, dict_net_node_coordinate, end_node, node_size=50, node_color='maroon')
-    nx.draw_networkx_nodes(net_grid, dict_net_node_coordinate, start_node, node_size=50, node_color='red',style='dotted')
+    nx.draw_networkx_nodes(net_grid, dict_net_node_coordinate, start_node, node_size=50, node_color='red')
     nx.draw_networkx_edges(net_grid, dict_net_node_coordinate, list_edges, edge_color='orange')

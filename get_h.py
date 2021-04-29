@@ -30,7 +30,7 @@ def get_hn(point_start, list_end_point, list_disabled_point_now, dict_net_node_c
     """起点与终点一一对应，可开始构造启发函数的矩阵"""
     """先获得第一出口的hn"""
     nodes_num = len(list_net_nodes)
-    for node in range(1, nodes_num + 1):
+    for node in nodes:
         if node == best_end_point:
             hn_1.append(0)
         elif node in list_disabled_point_now:
@@ -40,7 +40,7 @@ def get_hn(point_start, list_end_point, list_disabled_point_now, dict_net_node_c
                                          ((nodes[best_end_point][1] - nodes[node][1]) ** 2)))
             hn_1.append(length_hn_1)
     """获得第二出口的hn"""
-    for node in range(1, nodes_num + 1):
+    for node in nodes:
         if node == second_end_point:
             hn_2.append(0)
         elif node in list_disabled_point_now:
