@@ -1,13 +1,9 @@
-global a,b,c
-a = 1
-b = 2
-c = 3
-def test_here():
-    global a,b,c
-    b = a
-    b += a
-    a += c
-    c +=4
-    print(a,b,c)
-test_here()
-test_here()
+import switch_element
+a = (2, 3)
+b = (3, 7)
+c = (11, 8)
+
+a = switch_element.switch(a)
+b = switch_element.switch(b)
+c = switch_element.switch(c)
+print(a,b,c)

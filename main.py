@@ -20,7 +20,6 @@ import path_select
 import fire_diffusion
 import test_path
 length_final = 0
-length_final, length_next, length_last = 0, 0, 0
 """读取轮船地图信息"""
 data_path = "C:\\Users\\five days before\\Desktop\\毕业设计\\文档\\point_position.xlsx"
 path_info = "C:\\Users\\five days before\\Desktop\\毕业设计\\文档\\adj_list.xlsx"
@@ -53,9 +52,11 @@ for edge in list_net_edges:
     dict_edge_density.update(edge_density)
 
 fire_time = 0
+global fire_step
+fire_step = 10
 list_start_point_now = list(list_start_point)
 
-while fire_time < 50:
+while fire_time <= 70:
     map_data_read.map_draw(data_path, path_info)
     list_disabled_point_now, list_disabled_path_now = fire_diffusion.fire_diffusion(list_disabled_point,
                                                                                     list_disabled_path,
@@ -118,11 +119,7 @@ while fire_time < 50:
 
     list_start_point_now, dict_edge_density, length_final = test_path.path_update(all_path_now,list_start_point,length_final,dict_edge_density,
                                                 list_dijk_edges, fire_time)
-    for key in dict_edge_density:
-        if dict_edge_density[key]:
-            print('人流密度：', key,":", dict_edge_density[key])
-            # print('list_start_point_now:',list_start_point_now)
-    fire_time += 10
+    fire_time += fire_step
 # """标注"""
 # plt.text(170, 65, 'start', fontsize=5, backgroundcolor='red', alpha=0.6)
 # plt.text(190, 65, 'end', fontsize=5, backgroundcolor='maroon', alpha=0.6)
