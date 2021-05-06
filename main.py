@@ -56,7 +56,7 @@ global fire_step
 fire_step = 10
 list_start_point_now = list(list_start_point)
 
-while fire_time <= 70:
+while fire_time <= 80:
     map_data_read.map_draw(data_path, path_info)
     list_disabled_point_now, list_disabled_path_now = fire_diffusion.fire_diffusion(list_disabled_point,
                                                                                     list_disabled_path,
@@ -117,7 +117,7 @@ while fire_time <= 70:
         for path in all_path:
             draw_path.draw_path_now(path, dict_net_node_coordinate)
 
-    list_start_point_now, dict_edge_density, length_final = test_path.path_update(all_path_now,list_start_point,length_final,dict_edge_density,
+    list_start_point_now, dict_edge_density, length_final = test_path.path_update(all_path_now,list_start_point, length_final, dict_edge_density,
                                                 list_dijk_edges, fire_time)
     fire_time += fire_step
 # """标注"""
